@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Brewname:</b>
+  <%= @brew.brewname %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @brew.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @brew.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @brew.zip %>
+</p>
+
+<table>
+<% @beers.each do |beer| %>
+  <tr>
+    <td><%= beer.name %></td>
+    <td><%= beer.rating %></td>
+    <td><%= beer.type %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+<%= link_to 'Edit', edit_brew_path(@brew) %> |
+<%= link_to 'Back', brews_path %>

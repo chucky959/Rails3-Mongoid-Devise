@@ -1,0 +1,2 @@
+module BeercommentsHelper
+end

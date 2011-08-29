@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @beer.name %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%= @beer.rating %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @beer.type %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @beer.description %>
+</p>
+
+    <% if @beer.beercomments.size > 0 %>  
+      <h2>Comments</h2>  
+      <% for beercomment in @beer.beercomments %>  
+        <h3><%= beercomment.name %></h3>  
+        <p><%= beercomment.content %></p>  
+      <% end %>  
+    <% end %>  
+      
+    <h2>New Comment</h2>  
+      
+    <%= form_for [@beer, Beercomment.new] do |f| %>  
+      <p><%= f.label :name %> <%= f.text_field :name %></p>  
+      <p><%= f.text_area :content, :rows => 10 %></p>  
+      <p><%= f.submit %></p>  
+    <% end %>  
+
+<%= link_to 'Edit', edit_beer_path(@beer) %> |
+<%= link_to 'Back', beers_path %>
